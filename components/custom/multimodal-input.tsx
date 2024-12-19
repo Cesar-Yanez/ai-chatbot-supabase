@@ -1,5 +1,6 @@
 'use client';
 
+import { sanitizeUIMessages } from '@/lib/utils';
 import { Attachment, ChatRequestOptions, CreateMessage, Message } from 'ai';
 import cx from 'classnames';
 import { motion } from 'framer-motion';
@@ -15,7 +16,6 @@ import React, {
 import { toast } from 'sonner';
 import { useLocalStorage, useWindowSize } from 'usehooks-ts';
 
-import { sanitizeUIMessages } from '@/lib/utils';
 
 import { ArrowUpIcon, PaperclipIcon, StopIcon } from './icons';
 import { PreviewAttachment } from './preview-attachment';
@@ -24,14 +24,14 @@ import { Textarea } from '../ui/textarea';
 
 const suggestedActions = [
   {
-    title: 'What is the weather',
-    label: 'in San Francisco?',
-    action: 'What is the weather in San Francisco?',
+    title: 'Alimentación',
+    label: 'de peces en granja',
+    action: '¿Cuánto debo de alimentar a los peces de mi granja?',
   },
   {
-    title: 'Help me draft an essay',
-    label: 'about Silicon Valley',
-    action: 'Help me draft a short essay about Silicon Valley',
+    title: 'FCR y rentabilidad',
+    label: 'en cultivo de tilapia',
+    action: '¿Cómo impacta el FCR en la rentabilidad de una granja de tilapia?',
   },
 ];
 
@@ -262,7 +262,7 @@ export function MultimodalInput({
 
       <Textarea
         ref={textareaRef}
-        placeholder="Send a message..."
+        placeholder="Envía un mensaje..."
         value={input}
         onChange={handleInput}
         className={cx(
@@ -276,7 +276,7 @@ export function MultimodalInput({
             event.preventDefault();
 
             if (isLoading) {
-              toast.error('Please wait for the model to finish its response!');
+              toast.error('Por favor, espera a que el modelo termine su respuesta!');
             } else {
               submitForm();
             }

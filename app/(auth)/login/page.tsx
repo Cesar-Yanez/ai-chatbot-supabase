@@ -27,7 +27,7 @@ export default function LoginPage() {
       router.push('/');
       router.refresh();
     } catch (error: any) {
-      toast.error(error.message);
+      toast.error('Error al iniciar sesión: ' + error.message);
     } finally {
       setIsLoading(false);
     }
@@ -37,9 +37,9 @@ export default function LoginPage() {
     <div className="flex h-[calc(100vh-theme(spacing.16))] items-center justify-center py-10">
       <div className="w-full max-w-sm space-y-6">
         <div className="space-y-2 text-center">
-          <h1 className="text-3xl font-bold">Login</h1>
+          <h1 className="text-3xl font-bold">Iniciar Sesión</h1>
           <p className="text-gray-500 dark:text-gray-400">
-            Enter your email below to login to your account
+            Ingresa tu correo electrónico para acceder a tu cuenta
           </p>
         </div>
         <form className="space-y-4" onSubmit={handleSubmit}>
@@ -48,23 +48,23 @@ export default function LoginPage() {
             <Input
               id="email"
               name="email"
-              placeholder="m@example.com"
+              placeholder="correo@ejemplo.com"
               required
               type="email"
             />
           </div>
           <div className="space-y-2">
-            <Label htmlFor="password">Password</Label>
+            <Label htmlFor="password">Contraseña</Label>
             <Input id="password" name="password" required type="password" />
           </div>
           <Button className="w-full" disabled={isLoading}>
-            {isLoading ? 'Loading...' : 'Login'}
+            {isLoading ? 'Cargando...' : 'Iniciar Sesión'}
           </Button>
         </form>
         <div className="text-center text-sm">
-          Don&apos;t have an account?{' '}
+          ¿No tienes una cuenta?{' '}
           <Link className="underline" href="/register">
-            Register
+            Regístrate
           </Link>
         </div>
       </div>

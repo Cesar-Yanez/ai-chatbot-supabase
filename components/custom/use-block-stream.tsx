@@ -2,9 +2,10 @@ import { JSONValue } from 'ai';
 import { Dispatch, SetStateAction, useEffect, useState } from 'react';
 import { useSWRConfig } from 'swr';
 
+import { UIBlock } from './block';
+
 import { Suggestion } from '@/lib/supabase/types';
 
-import { UIBlock } from './block';
 
 type StreamingDelta = {
   type: 'text-delta' | 'title' | 'id' | 'suggestion' | 'clear' | 'finish';

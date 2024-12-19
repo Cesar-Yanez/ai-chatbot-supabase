@@ -21,49 +21,17 @@ export const Overview = () => {
           <span>+</span>
           <MessageIcon size={32} />
         </p>
-        <p>
-          This is an{' '}
-          <Link
-            className="font-medium underline underline-offset-4"
-            href="https://github.com/vercel/ai-chatbot"
-            target="_blank"
-          >
-            open source
-          </Link>{' '}
-          chatbot template built with Next.js, the AI SDK by Vercel, and
-          Supabase. It uses the{' '}
-          <code className="rounded-md bg-muted px-1 py-0.5">streamText</code>{' '}
-          function in the server and the{' '}
-          <code className="rounded-md bg-muted px-1 py-0.5">useChat</code> hook
-          on the client to create a seamless chat experience, with{' '}
-          <Link
-            className="font-medium underline underline-offset-4"
-            href="https://supabase.com"
-            target="_blank"
-          >
-            Supabase
-          </Link>{' '}
-          providing real-time data storage and authentication.
+        <p className="text-2xl font-bold">
+          Bienvenido al Asistente Inteligente para la Industria Acuícola.
         </p>
         <p>
-          Learn more about the{' '}
-          <Link
-            className="font-medium underline underline-offset-4"
-            href="https://sdk.vercel.ai/docs"
-            target="_blank"
-          >
-            AI SDK
-          </Link>{' '}
-          and{' '}
-          <Link
-            className="font-medium underline underline-offset-4"
-            href="https://supabase.com/docs"
-            target="_blank"
-          >
-            Supabase
-          </Link>{' '}
-          in their respective documentation.
+          Este chatbot está diseñado para ayudarte con información, recursos y
+          soluciones relacionadas con el mundo de la acuicultura. Desde el manejo
+          de especies, optimización de procesos de cultivo, hasta
+          recomendaciones para mejorar la sostenibilidad de tu operación,
+          estamos aquí para apoyarte.
         </p>
+        <p>¿En qué podemos ayudarte hoy?</p>
       </div>
     </motion.div>
   );

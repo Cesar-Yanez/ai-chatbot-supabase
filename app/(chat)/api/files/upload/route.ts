@@ -3,7 +3,7 @@ import { NextResponse } from 'next/server';
 import { upload } from '@/db/storage';
 import { createClient } from '@/lib/supabase/server';
 
-import type { Database } from '@/lib/supabase/types';
+//import type { Database } from '@/lib/supabase/types';
 
 function sanitizeFileName(fileName: string): string {
   return fileName.replace(/[^a-zA-Z0-9.-]/g, '_').toLowerCase();

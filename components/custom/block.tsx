@@ -1,3 +1,4 @@
+import { fetcher } from '@/lib/utils';
 import { Attachment, ChatRequestOptions, CreateMessage, Message } from 'ai';
 import cx from 'classnames';
 import { formatDistance } from 'date-fns';
@@ -19,8 +20,6 @@ import {
   useDebounceCallback,
   useWindowSize,
 } from 'usehooks-ts';
-
-import { fetcher } from '@/lib/utils';
 
 import { DiffView } from './diffview';
 import { DocumentSkeleton } from './document-skeleton';

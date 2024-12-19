@@ -4,10 +4,11 @@ import { useParams } from 'next/navigation';
 import { memo } from 'react';
 import useSWR from 'swr';
 
+import { GroupedChatList } from './chat-history-grouped-list';
+
 import { useSidebar } from '@/components/ui/sidebar';
 import { Chat } from '@/lib/supabase/types';
 
-import { GroupedChatList } from './chat-history-grouped-list';
 
 export function ChatHistoryClient({
   initialChats,

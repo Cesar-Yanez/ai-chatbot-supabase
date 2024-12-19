@@ -1,6 +1,9 @@
 'use client';
 
+import { cn } from '@/lib/utils';
 import { startTransition, useMemo, useOptimistic, useState } from 'react';
+
+import { CheckCirclFillIcon, ChevronDownIcon } from './icons';
 
 import { models } from '@/ai/models';
 import { saveModelId } from '@/app/(chat)/actions';
@@ -11,9 +14,8 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { cn } from '@/lib/utils';
 
-import { CheckCirclFillIcon, ChevronDownIcon } from './icons';
+
 
 export function ModelSelector({
   selectedModelId,

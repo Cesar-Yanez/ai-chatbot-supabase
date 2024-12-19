@@ -5,10 +5,11 @@ import { DOMParser, Node } from 'prosemirror-model';
 import { Decoration, DecorationSet, EditorView } from 'prosemirror-view';
 import { renderToString } from 'react-dom/server';
 
-import { Markdown } from '@/components/custom/markdown';
 
 import { documentSchema } from './config';
 import { createSuggestionWidget, UISuggestion } from './suggestions';
+
+import { Markdown } from '@/components/custom/markdown';
 
 export const buildDocumentFromContent = (content: string) => {
   const parser = DOMParser.fromSchema(documentSchema);

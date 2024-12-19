@@ -103,7 +103,7 @@ const ChatItem = ({
           showOnHover={!isActive}
         >
           <MoreHorizontalIcon />
-          <span className="sr-only">More</span>
+          <span className="sr-only">Más</span>
         </SidebarMenuAction>
       </DropdownMenuTrigger>
       <DropdownMenuContent side="bottom" align="end">
@@ -112,7 +112,7 @@ const ChatItem = ({
           onSelect={() => onDelete(chat.id)}
         >
           <TrashIcon />
-          <span>Delete</span>
+          <span>Eliminar</span>
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
@@ -170,7 +170,7 @@ export function SidebarHistory({ user }: { user: User | undefined }) {
       <SidebarGroup>
         <SidebarGroupContent>
           <div className="text-zinc-500 w-full flex flex-row justify-center items-center text-sm gap-2">
-            <div>Login to save and revisit previous chats!</div>
+            <div>Inicia sesión para guardar y revisar tus chats anteriores!</div>
           </div>
         </SidebarGroupContent>
       </SidebarGroup>
@@ -212,7 +212,8 @@ export function SidebarHistory({ user }: { user: User | undefined }) {
         <SidebarGroupContent>
           <div className="text-zinc-500 w-full flex flex-row justify-center items-center text-sm gap-2">
             <div>
-              Your conversations will appear here once you start chatting!
+              Tus conversaciones aparecerán aquí una vez que comiences a
+              chatear!
             </div>
           </div>
         </SidebarGroupContent>
@@ -287,7 +288,7 @@ export function SidebarHistory({ user }: { user: User | undefined }) {
                     {groupedChats.yesterday.length > 0 && (
                       <>
                         <div className="px-2 py-1 text-xs text-sidebar-foreground/50 mt-6">
-                          Yesterday
+                          Ayer
                         </div>
                         {groupedChats.yesterday.map((chat) => (
                           <ChatItem
@@ -307,7 +308,7 @@ export function SidebarHistory({ user }: { user: User | undefined }) {
                     {groupedChats.lastWeek.length > 0 && (
                       <>
                         <div className="px-2 py-1 text-xs text-sidebar-foreground/50 mt-6">
-                          Last 7 days
+                          Últimos 7 días
                         </div>
                         {groupedChats.lastWeek.map((chat) => (
                           <ChatItem
@@ -327,7 +328,7 @@ export function SidebarHistory({ user }: { user: User | undefined }) {
                     {groupedChats.lastMonth.length > 0 && (
                       <>
                         <div className="px-2 py-1 text-xs text-sidebar-foreground/50 mt-6">
-                          Last 30 days
+                          Últimos 30 días
                         </div>
                         {groupedChats.lastMonth.map((chat) => (
                           <ChatItem
@@ -347,7 +348,7 @@ export function SidebarHistory({ user }: { user: User | undefined }) {
                     {groupedChats.older.length > 0 && (
                       <>
                         <div className="px-2 py-1 text-xs text-sidebar-foreground/50 mt-6">
-                          Older
+                          Antiguos
                         </div>
                         {groupedChats.older.map((chat) => (
                           <ChatItem
@@ -372,19 +373,19 @@ export function SidebarHistory({ user }: { user: User | undefined }) {
       <AlertDialog open={showDeleteDialog} onOpenChange={setShowDeleteDialog}>
         <AlertDialogContent>
           <AlertDialogHeader>
-            <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+            <AlertDialogTitle>¿Estás seguro?</AlertDialogTitle>
             <AlertDialogDescription>
-              This action cannot be undone. This will permanently delete your
-              chat and remove it from our servers.
+              Esta acción no se puede deshacer. Esto eliminará permanentemente tu
+              chat y lo eliminará de nuestros servidores.
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
-            <AlertDialogCancel>Cancel</AlertDialogCancel>
+            <AlertDialogCancel>Cancelar</AlertDialogCancel>
             <AlertDialogAction
               className="bg-destructive text-destructive-foreground"
               onClick={handleDelete}
             >
-              Delete chat
+              Eliminar chat
             </AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>

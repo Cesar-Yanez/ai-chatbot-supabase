@@ -1,17 +1,18 @@
 'use client';
-
+import { getDocumentTimestampByIndex } from '@/lib/utils';
 import { isAfter } from 'date-fns';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { useSWRConfig } from 'swr';
 import { useWindowSize } from 'usehooks-ts';
 
-import { Document } from '@/lib/supabase/types';
-import { getDocumentTimestampByIndex } from '@/lib/utils';
+
 
 import { UIBlock } from './block';
 import { LoaderIcon } from './icons';
 import { Button } from '../ui/button';
+
+import { Document } from '@/lib/supabase/types';
 
 interface VersionFooterProps {
   block: UIBlock;

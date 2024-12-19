@@ -1,4 +1,9 @@
 import {
+  generateUUID,
+  getMostRecentUserMessage,
+  sanitizeResponseMessages,
+} from '@/lib/utils';
+import {
   convertToCoreMessages,
   CoreMessage,
   Message,
@@ -7,6 +12,8 @@ import {
   streamText,
 } from 'ai';
 import { z } from 'zod';
+
+import { generateTitleFromUserMessage } from '../../actions';
 
 import { customModel } from '@/ai';
 import { models } from '@/ai/models';
@@ -21,13 +28,6 @@ import {
 } from '@/db/mutations';
 import { createClient } from '@/lib/supabase/server';
 import { MessageRole } from '@/lib/supabase/types';
-import {
-  generateUUID,
-  getMostRecentUserMessage,
-  sanitizeResponseMessages,
-} from '@/lib/utils';
-
-import { generateTitleFromUserMessage } from '../../actions';
 
 export const maxDuration = 60;
 
