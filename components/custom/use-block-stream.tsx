@@ -7,6 +7,8 @@ import { UIBlock } from './block';
 import { Suggestion } from '@/lib/supabase/types';
 
 
+
+
 type StreamingDelta = {
   type: 'text-delta' | 'title' | 'id' | 'suggestion' | 'clear' | 'finish';
   content: string | Suggestion;
