@@ -1,6 +1,5 @@
 'use client';
 
-import { sanitizeUIMessages } from '@/lib/utils';
 import { ChatRequestOptions, CreateMessage, Message } from 'ai';
 import cx from 'classnames';
 import {
@@ -13,6 +12,14 @@ import { Dispatch, SetStateAction, useEffect, useRef, useState } from 'react';
 import { useOnClickOutside } from 'usehooks-ts';
 
 import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from '@/components/ui/tooltip';
+import { sanitizeUIMessages } from '@/lib/utils';
+
+import {
   ArrowUpIcon,
   MessageIcon,
   PenIcon,
@@ -21,12 +28,6 @@ import {
 } from './icons';
 import { Button } from '../ui/button';
 
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from '@/components/ui/tooltip';
 
 type ToolProps = {
   type: 'final-polish' | 'request-suggestions' | 'adjust-reading-level';

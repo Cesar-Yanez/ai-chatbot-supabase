@@ -6,7 +6,6 @@ import { useRouter } from 'next/navigation';
 import { memo } from 'react';
 import { toast } from 'sonner';
 
-import { MoreHorizontalIcon, TrashIcon } from './icons';
 
 import {
   DropdownMenu,
@@ -23,6 +22,8 @@ import {
   SidebarMenuItem,
 } from '@/components/ui/sidebar';
 import { Chat } from '@/lib/supabase/types';
+
+import { MoreHorizontalIcon, TrashIcon } from './icons';
 
 
 type GroupedChats = {

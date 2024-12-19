@@ -2,9 +2,10 @@
 
 import { useFormStatus } from 'react-dom';
 
+import { LoaderIcon } from '@/components/custom/icons';
+
 import { Button } from '../ui/button';
 
-import { LoaderIcon } from '@/components/custom/icons';
 
 
 export function SubmitButton({

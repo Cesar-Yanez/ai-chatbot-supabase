@@ -1,6 +1,5 @@
 'use client';
 
-import { sanitizeUIMessages } from '@/lib/utils';
 import { Attachment, ChatRequestOptions, CreateMessage, Message } from 'ai';
 import cx from 'classnames';
 import { motion } from 'framer-motion';
@@ -15,6 +14,8 @@ import React, {
 } from 'react';
 import { toast } from 'sonner';
 import { useLocalStorage, useWindowSize } from 'usehooks-ts';
+
+import { sanitizeUIMessages } from '@/lib/utils';
 
 
 import { ArrowUpIcon, PaperclipIcon, StopIcon } from './icons';

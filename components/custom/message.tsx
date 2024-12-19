@@ -6,6 +6,8 @@ import { motion } from 'framer-motion';
 import { Dispatch, SetStateAction } from 'react';
 
 
+import { Vote } from '@/lib/supabase/types';
+
 import { UIBlock } from './block';
 import { DocumentToolCall, DocumentToolResult } from './document';
 import { SparklesIcon } from './icons';
@@ -14,7 +16,6 @@ import { MessageActions } from './message-actions';
 import { PreviewAttachment } from './preview-attachment';
 import { Weather } from './weather';
 
-import { Vote } from '@/lib/supabase/types';
 export const PreviewMessage = ({
   chatId,
   message,
