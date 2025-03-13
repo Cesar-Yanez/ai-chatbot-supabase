@@ -454,39 +454,28 @@ export async function POST(request: Request) {
           },
         },
       },
-      onFinish: async ({ responseMessages }) => {
+      onFinish: async (result) => {
         if (user && user.id) {
           try {
             const responseMessagesWithoutIncompleteToolCalls =
-              sanitizeResponseMessages(responseMessages);
+              sanitizeResponseMessages(result.response.messages);
 
             await saveMessages({
               chatId: id,
               messages: responseMessagesWithoutIncompleteToolCalls.map(
-                (message) => {
-                  const messageId = generateUUID();
-
-                  if (message.role === 'assistant') {
-                    streamingData.appendMessageAnnotation({
-                      messageIdFromServer: messageId,
-                    });
-                  }
-
-                  return {
-                    id: messageId,
-                    chat_id: id,
-                    role: message.role as MessageRole,
-                    content: formatMessageContent(message),
-                    created_at: new Date().toISOString(),
-                  };
-                }
+                (message) => ({
+                  id: generateUUID(),
+                  chat_id: id,
+                  role: message.role as MessageRole,
+                  content: formatMessageContent(message),
+                  created_at: new Date().toISOString(),
+                })
               ),
             });
           } catch (error) {
             console.error('Failed to save chat:', error);
           }
         }
-
         streamingData.close();
       },
       experimental_telemetry: {

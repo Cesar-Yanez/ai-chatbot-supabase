@@ -1,5 +1,6 @@
 'use client';
 
+import { LogOutIcon } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { toast } from 'sonner';
 
@@ -21,6 +22,7 @@ export function LogoutButton() {
 
   return (
     <Button variant="ghost" onClick={handleLogout}>
+      <LogOutIcon className="mr-2 size-4" />
       Cerrar sesión
     </Button>
   );

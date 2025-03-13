@@ -220,18 +220,24 @@ export type Database = {
           email: string;
           id: string;
           updated_at: string;
+          is_admin?: boolean;
+          is_enabled: boolean | null;
         };
         Insert: {
           created_at?: string;
           email: string;
           id?: string;
           updated_at?: string;
+          is_admin?: boolean;
+          is_enabled: boolean | null;
         };
         Update: {
           created_at?: string;
           email?: string;
           id?: string;
           updated_at?: string;
+          is_admin?: boolean;
+          is_enabled: boolean | null;
         };
         Relationships: [];
       };

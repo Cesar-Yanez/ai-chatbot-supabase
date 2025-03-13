@@ -4,8 +4,11 @@ import { User } from '@supabase/supabase-js';
 import { ChevronUp } from 'lucide-react';
 import Image from 'next/image';
 import { useTheme } from 'next-themes';
+import { useEffect, useState } from 'react';
 
+import { AddDocumentButton } from '@/components/custom/add-document-button';
 import { LogoutButton } from '@/components/custom/logout-button';
+import { UsersButton } from '@/components/custom/users-button';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -18,9 +21,29 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from '@/components/ui/sidebar';
+import { createClient } from '@/lib/supabase/client';
 
 export function SidebarUserNav({ user }: { user: User }) {
   const { setTheme, theme } = useTheme();
+  const [isAdmin, setIsAdmin] = useState(false);
+
+  useEffect(() => {
+    const checkAdminStatus = async () => {
+      const supabase = createClient();
+      const { data, error } = await supabase
+        .from('users')
+        .select('is_admin')
+        .eq('id', user.id)
+        .single();
+
+      if (error) return;
+      setIsAdmin(!!data?.is_admin);
+    };
+
+    if (user?.id) {
+      checkAdminStatus();
+    }
+  }, [user?.id]);
 
   return (
     <SidebarMenu>
@@ -51,6 +74,12 @@ export function SidebarUserNav({ user }: { user: User }) {
             </DropdownMenuItem>
             <DropdownMenuSeparator />
             <LogoutButton />
+            {isAdmin && (
+              <>
+                <AddDocumentButton />
+                <UsersButton />
+              </>
+            )}
           </DropdownMenuContent>
         </DropdownMenu>
       </SidebarMenuItem>

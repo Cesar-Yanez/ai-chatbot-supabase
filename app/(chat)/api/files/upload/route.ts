@@ -88,6 +88,7 @@ export async function POST(req: Request) {
         );
         if (createError) {
           console.error('Bucket creation error:', createError);
+          throw createError;
         }
       }
 
