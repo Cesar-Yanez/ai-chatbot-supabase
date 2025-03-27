@@ -7,6 +7,7 @@ import { useTheme } from 'next-themes';
 import { useEffect, useState } from 'react';
 
 import { AddDocumentButton } from '@/components/custom/add-document-button';
+import { InstructionsButton } from '@/components/custom/instructions-button';
 import { LogoutButton } from '@/components/custom/logout-button';
 import { UsersButton } from '@/components/custom/users-button';
 import {
@@ -77,6 +78,7 @@ export function SidebarUserNav({ user }: { user: User }) {
             {isAdmin && (
               <>
                 <AddDocumentButton />
+                <InstructionsButton />
                 <UsersButton />
               </>
             )}

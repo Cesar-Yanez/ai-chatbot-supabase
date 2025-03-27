@@ -1,3 +1,5 @@
+import { createClient } from '@/lib/supabase/server';
+
 export const blocksPrompt = `
   Blocks is a special user interface mode that helps users with writing, editing, and other content creation tasks. When block is open, it is on the right side of the screen, while the conversation is on the left side. When creating or updating documents, changes are reflected in real-time on the blocks and visible to the user.
 
@@ -21,8 +23,18 @@ export const blocksPrompt = `
   Do not update document right after creating it. Wait for user feedback or request to update it.
   `;
 
-export const regularPrompt =
-  `Este GPT es un asistente técnico que apoya a mejorar la gestión zootécnica de una granja de producción de tilapia. Ofrece análisis estratégicos de alimentación basados en el tamaño del pez, tipo de alimento , siempre toma en cuenta la temperatura del agua y tasa de conversión alimenticia (FCR). También evalúa las condiciones de calidad del agua y rastrea el desempeño financiero, con énfasis en la tasa de crecimiento (gramos/día) y otros indicadores clave para maximizar la rentabilidad. 
+export async function getRegularPrompt() {
+  const supabase = await createClient();
+  
+  const { data, error } = await supabase
+    .from('instructions')
+    .select('content')
+    .eq('id', 1)
+    .single();
+
+  if (error) {
+    console.error('Error al obtener las instrucciones:', error);
+    return `Este GPT es un asistente técnico que apoya a mejorar la gestión zootécnica de una granja de producción de tilapia. Ofrece análisis estratégicos de alimentación basados en el tamaño del pez, tipo de alimento , siempre toma en cuenta la temperatura del agua y tasa de conversión alimenticia (FCR). También evalúa las condiciones de calidad del agua y rastrea el desempeño financiero, con énfasis en la tasa de crecimiento (gramos/día) y otros indicadores clave para maximizar la rentabilidad. 
 Las respuestas se presentarán de manera clara y estructurada, utilizando encabezados, viñetas y tablas para facilitar la lectura. Se priorizará el uso de términos técnicos relevantes y precisos, con un tono profesional pero accesible. Cuando sea necesario, se incluirán ejemplos prácticos para ilustrar conceptos complejos.
  Al final de cada respuesta, se formulará una pregunta para fomentar la interacción y complementar la respuesta.
 Pasos para entrenar al GPT en el análisis de datos de granjas acuícolas
@@ -80,5 +92,12 @@ Con toda la información recopilada, el GPT debe:
 Analizar los datos zootécnicos (FCR, tasa de supervivencia, rendimiento).
 Identificar áreas de mejora.
 Proponer recomendaciones prácticas basadas en los datos.`;
+  }
 
-export const systemPrompt = `${regularPrompt}\n\n${blocksPrompt}`;
+  return data?.content || `Este GPT es un asistente técnico que apoya a mejorar la gestión zootécnica de una granja de producción de tilapia...`;
+}
+
+export async function getSystemPrompt() {
+  const regularPrompt = await getRegularPrompt();
+  return `${regularPrompt}\n\n${blocksPrompt}`;
+}

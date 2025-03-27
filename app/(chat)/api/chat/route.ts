@@ -17,7 +17,7 @@ import { generateTitleFromUserMessage } from '../../actions';
 
 import { customModel } from '@/ai';
 import { models } from '@/ai/models';
-import { blocksPrompt, regularPrompt, systemPrompt } from '@/ai/prompts';
+import { blocksPrompt, getRegularPrompt, getSystemPrompt } from '@/ai/prompts';
 import { getChatById, getDocumentById, getSession } from '@/db/cached-queries';
 import {
   saveChat,
@@ -165,7 +165,7 @@ export async function POST(request: Request) {
 
     const result = await streamText({
       model: customModel(model.apiIdentifier),
-      system: systemPrompt,
+      system: await getSystemPrompt(),
       messages: coreMessages,
       maxSteps: 5,
       experimental_activeTools: allTools,
