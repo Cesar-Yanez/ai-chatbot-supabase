@@ -32,7 +32,10 @@ export const Overview = () => {
           estamos aquí para apoyarte.
         </p> */}
         <p>
-          Este es un chatbot base configurado de fórma genérica para poder ser configurado para pruebas.
+          Este chatbot está diseñado para proporcionar asistencia inteligente y personalizada,
+          utilizando tecnologías avanzadas de procesamiento de lenguaje natural. 
+          Su arquitectura modular permite una fácil adaptación a diversos casos de uso
+          y la integración con múltiples fuentes de datos.
         </p>
         <p>¿En qué podemos ayudarte hoy?</p>
       </div>
