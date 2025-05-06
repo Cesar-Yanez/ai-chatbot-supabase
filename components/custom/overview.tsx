@@ -22,7 +22,7 @@ export const Overview = () => {
           <MessageIcon size={32} />
         </p>
         <p className="text-2xl font-bold">
-          Chatbot para biomédica.
+          Chatbot base.
         </p>
         {/* <p>
           Este chatbot está diseñado para ayudarte con información, recursos y
@@ -32,10 +32,13 @@ export const Overview = () => {
           estamos aquí para apoyarte.
         </p> */}
         <p>
-          Este chatbot está diseñado para proporcionar asistencia inteligente y personalizada,
-          utilizando tecnologías avanzadas de procesamiento de lenguaje natural. 
-          Su arquitectura modular permite una fácil adaptación a diversos casos de uso
-          y la integración con múltiples fuentes de datos.
+        Este chatbot funciona como una instancia base sin configuración activa. 
+        No posee conocimientos ni habilidades predefinidas hasta que se le asigne 
+        una configuración específica a través del sistema. 
+        Está diseñado para adaptarse a distintos propósitos según las 
+        instrucciones que reciba, permitiendo una personalización completa de su 
+        comportamiento, tema y tareas. Hasta que se configure, no está habilitado 
+        para responder preguntas ni realizar acciones.
         </p>
         <p>¿En qué podemos ayudarte hoy?</p>
       </div>
