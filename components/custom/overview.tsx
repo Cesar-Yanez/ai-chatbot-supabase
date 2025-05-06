@@ -22,14 +22,17 @@ export const Overview = () => {
           <MessageIcon size={32} />
         </p>
         <p className="text-2xl font-bold">
-          Bienvenido al Asistente Inteligente para la Industria Acuícola.
+          Chatbot para biomédica.
         </p>
-        <p>
+        {/* <p>
           Este chatbot está diseñado para ayudarte con información, recursos y
           soluciones relacionadas con el mundo de la acuicultura. Desde el manejo
           de especies, optimización de procesos de cultivo, hasta
           recomendaciones para mejorar la sostenibilidad de tu operación,
           estamos aquí para apoyarte.
+        </p> */}
+        <p>
+          Este es un chatbot base configurado de fórma genérica para poder ser configurado para pruebas.
         </p>
         <p>¿En qué podemos ayudarte hoy?</p>
       </div>
